@@ -1,6 +1,6 @@
 # nest-udp
 
-[Docs](https://github.com/nattogo/nest-udp/README.MD) |
+[Docs](https://github.com/nattogo/nest-udp/blob/master/README.MD) |
 [MIT Licensed](LICENSE.md)
 
 A UDP microservice strategy implementation(with node dgram) for NestJS.
