@@ -9,7 +9,8 @@
   },
   "npm": {
     "publish": true,
-    "access": "public"
+    "access": "public",
+    "skipChecks": true
   },
   "hooks": {
     "before:init": ["pnpm run lint", "pnpm run test:e2e"],
