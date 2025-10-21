@@ -15,5 +15,10 @@
   "hooks": {
     "before:init": ["pnpm run lint", "pnpm run test:e2e"],
     "after:bump": "pnpm run build"
+  },
+  "prompt": {
+    "ghRelease": false,
+    "glRelease": false,
+    "publish": false
   }
 }
