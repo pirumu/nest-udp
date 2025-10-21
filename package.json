@@ -1,6 +1,6 @@
 {
   "name": "@pirumu/nest-udp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A NestJS microservice transport layer for UDP communication",
   "author": "Than The Van <thanthevanpm3@gmail.com>",
   "license": "MIT",
