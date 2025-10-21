@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "useUnknownInCatchVariables": false,
+    "target": "ES2023",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false,
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "paths": {
+      "@pirumu/nest-udp": ["lib"],
+      "@pirumu/nest-udp/*": ["lib/*"]
+    }
+  },
+  "include": ["lib/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

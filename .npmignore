@@ -1,0 +1,21 @@
+# source
+lib
+tests
+pnpm-lock.yaml
+tslint.json
+tsconfig.json
+tsconfig.build.json
+tsconfig.spec.json
+.prettierrc
+
+# github
+.github
+renovate.json
+
+# misc
+.commitlintrc.json
+.release-it.json
+.eslintignore
+.eslintrc.js
+.idea
+.vscode
