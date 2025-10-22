@@ -112,14 +112,14 @@ export class ServerUdp
       ? JSON.stringify(packet.pattern)
       : packet.pattern;
 
-    const tcpContext = new UdpContext([
+    const udpContext = new UdpContext([
       socket,
       remoteInfo,
       rawMessage,
       pattern,
     ]);
     if (isUndefined((packet as IncomingRequest).id)) {
-      return this.handleEvent(pattern, packet, tcpContext);
+      return this.handleEvent(pattern, packet, udpContext);
     }
 
     const handler = this.getHandlerByPattern(pattern);
@@ -134,10 +134,10 @@ export class ServerUdp
     }
     return this.onProcessingStartHook(
       this.transportId,
-      tcpContext,
+      udpContext,
       async () => {
         const response$ = this.transformToObservable(
-          await handler(packet.data, tcpContext),
+          await handler(packet.data, udpContext),
         );
 
         response$ &&
@@ -147,7 +147,7 @@ export class ServerUdp
               data as WritePacket & PacketId,
             );
 
-            this.onProcessingEndHook?.(this.transportId, tcpContext);
+            this.onProcessingEndHook?.(this.transportId, udpContext);
             socket.sendMessage(
               outgoingResponse,
               remoteInfo.address,
