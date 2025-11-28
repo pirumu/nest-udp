@@ -88,7 +88,18 @@ export class ClientUdp extends ClientProxy<UdpEvents, UdpStatus> {
       type: this.type,
       ...this.options?.socketOptions,
     });
-    return new this.socketClass(socket);
+
+    const socketInstance = new this.socketClass(socket);
+
+    // Configure if it's a ReliableUdpSocket
+    if (
+      'configure' in socketInstance &&
+      typeof socketInstance.configure === 'function'
+    ) {
+      socketInstance.configure(this.options.reliableOptions);
+    }
+
+    return socketInstance;
   }
 
   public close() {
@@ -167,6 +178,7 @@ export class ClientUdp extends ClientProxy<UdpEvents, UdpStatus> {
       const serializedPacket = this.serializer.serialize(packet);
 
       this.routingMap.set(packet.id, callback);
+
       this.socket!.sendMessage(serializedPacket, this.host, this.port);
 
       return () => this.routingMap.delete(packet.id);

@@ -250,6 +250,16 @@ export class ServerUdp
   }
 
   protected getSocketInstance(socket: dgram.Socket): UdpSocket {
-    return new this.socketClass(this.server, socket);
+    const socketInstance = new this.socketClass(this.server, socket);
+
+    // Configure if it's a ReliableUdpSocket
+    if (
+      'configure' in socketInstance &&
+      typeof socketInstance.configure === 'function'
+    ) {
+      socketInstance.configure(this.options.reliableOptions);
+    }
+
+    return socketInstance;
   }
 }

@@ -21,7 +21,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "paths": {
       "@pirumu/nest-udp": ["lib"],
       "@pirumu/nest-udp/*": ["lib/*"]
