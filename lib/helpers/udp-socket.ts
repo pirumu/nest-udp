@@ -78,6 +78,9 @@ export abstract class UdpSocket {
       throw new InvalidJSONFormatException(e, data);
     }
     message = message || {};
-    this.socket.emit(UdpEventsMap.DATA, message, info);
+    if ('body' in message) {
+      return this.socket.emit(UdpEventsMap.DATA, message.body, info);
+    }
+    return this.socket.emit(UdpEventsMap.DATA, message, info);
   }
 }

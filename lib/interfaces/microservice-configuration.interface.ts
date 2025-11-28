@@ -1,7 +1,11 @@
 import { UDP_TRANSPORT } from '../constants';
 import { Deserializer, Serializer } from '@nestjs/microservices';
 import { Type } from '@nestjs/common';
-import { UdpSocket } from '../helpers';
+import {
+  UdpSocket,
+  ReliableUdpSocket,
+  ReliableUdpSocketOptions,
+} from '../helpers';
 import * as dgram from 'dgram';
 import { MicroserviceOptions } from '@nestjs/microservices/interfaces/microservice-configuration.interface';
 
@@ -18,5 +22,6 @@ export type UdpServerOptions = MicroserviceOptions & {
     socketClass?: Type<UdpSocket>;
     socketOptions?: dgram.SocketOptions;
     bindOptions?: Omit<dgram.BindOptions, 'address' | 'port'>;
+    reliableOptions?: ReliableUdpSocketOptions;
   };
 };

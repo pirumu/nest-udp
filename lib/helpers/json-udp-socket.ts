@@ -2,7 +2,7 @@ import * as dgram from 'dgram';
 import { UdpSocket } from './udp-socket';
 import { MaxPacketLengthExceededException } from '@nestjs/microservices/errors/max-packet-length-exceeded.exception';
 
-const MAX_UDP_PAYLOAD_SIZE = 65507;
+const MAX_UDP_PAYLOAD_SIZE = 1400;
 
 export class JsonUdpSocket extends UdpSocket {
   protected handleSend(
